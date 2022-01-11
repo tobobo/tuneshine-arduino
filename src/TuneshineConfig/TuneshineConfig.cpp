@@ -30,6 +30,9 @@ GlobalConfig * TuneshineConfig::getGlobalConfig() {
   
   // Can passing by reference help with any of this or is that for
   // a different kind of circumstance?
+  
+  // Pointer naming conventions? Always start with p?
+  // Or can we just rely on the type system?
 }
 
 WifiConfig * TuneshineConfig::getWifiConfig() {
@@ -39,8 +42,12 @@ WifiConfig * TuneshineConfig::getWifiConfig() {
     String * password = new String(secrets::password);
     wifiConfig->ssid = ssid;
     wifiConfig->password = password;
+    Serial.println("str from config");
+    Serial.println(wifiConfig->ssid->c_str());
     _wifiConfig = wifiConfig;
   }
-
+  
+  Serial.println("str from config pointer");
+  Serial.println(_wifiConfig->ssid->c_str());
   return _wifiConfig;
 }

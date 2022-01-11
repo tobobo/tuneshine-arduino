@@ -38,9 +38,10 @@ void NetConnectionManager::initialize()
 void NetConnectionManager::begin()
 {
   xTaskCreate(
-      [](void *netConnectionManager)
+      [](void *pNetConnectionManager)
       {
-        ((NetConnectionManager *)netConnectionManager)->initialize();
+        NetConnectionManager netConnectionManager = *((NetConnectionManager *)pNetConnectionManager);
+        netConnectionManager.initialize();
       },
       "netConnectionManager",
       8192 * 2,
