@@ -27,6 +27,9 @@ GlobalConfig * TuneshineConfig::getGlobalConfig() {
   // to this class, but I was seeing strange behavior when I
   // changed the return type of this function to GlobalConfig
   return _globalConfig;
+  
+  // Can passing by reference help with any of this or is that for
+  // a different kind of circumstance?
 }
 
 WifiConfig * TuneshineConfig::getWifiConfig() {
