@@ -5,10 +5,7 @@
 void NetConnectionManager::initialize()
 {
   TuneshineConfig * config = getConfig();
-  Serial.println("getting from net connection");
   WifiConfig * wifiConfig = config->getWifiConfig();
-  Serial.println("str from net");
-  Serial.println(wifiConfig->ssid->c_str());
   WiFi.begin(wifiConfig->ssid->c_str(), wifiConfig->password->c_str());
 
   if (_networkInitHandler != NULL)
@@ -41,10 +38,9 @@ void NetConnectionManager::initialize()
 void NetConnectionManager::begin()
 {
   xTaskCreate(
-      [](void *pNetConnectionManager)
+      [](void *netConnectionManager)
       {
-        NetConnectionManager netConnectionManager = *((NetConnectionManager *)pNetConnectionManager);
-        netConnectionManager.initialize();
+        ((NetConnectionManager *)netConnectionManager)->initialize();
       },
       "netConnectionManager",
       8192 * 2,

@@ -39,12 +39,8 @@ WifiConfig * TuneshineConfig::getWifiConfig() {
     String * password = new String(secrets::password);
     wifiConfig->ssid = ssid;
     wifiConfig->password = password;
-    Serial.println("str from config");
-    Serial.println(wifiConfig->ssid->c_str());
     _wifiConfig = wifiConfig;
   }
-  
-  Serial.println("str from config pointer");
-  Serial.println(_wifiConfig->ssid->c_str());
+
   return _wifiConfig;
 }

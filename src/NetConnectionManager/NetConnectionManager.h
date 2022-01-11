@@ -15,8 +15,6 @@ public:
   void onNetworkInit(EventHandler handler);
   TuneshineConfig * getConfig();
   NetConnectionManager(TuneshineConfig * tuneshineConfig) {
-    Serial.println("config from constructor");
-    Serial.println(tuneshineConfig->getWifiConfig()->ssid->c_str());
     this->_networkInitHandler = NULL;
     this->_tuneshineConfig = tuneshineConfig;
   }

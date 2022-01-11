@@ -8,8 +8,6 @@ void setup()
   Serial.begin(115200);
 
   TuneshineConfig * tuneshineConfig = new TuneshineConfig();
-  Serial.println("str from main");
-  Serial.println(tuneshineConfig->getWifiConfig()->ssid->c_str());
 
   NetConnectionManager netConnectionManager(tuneshineConfig);
   ConfigServer configServer;
